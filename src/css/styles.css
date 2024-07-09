@@ -21,3 +21,24 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+.gallery {
+  width: 1128px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  padding: 24px 0 24px 0;
+}
+
+.gallery-image {
+  width: 360px;
+  height: 200px;
+  transition: all 300ms;
+}
+
+.gallery-image:hover {
+  transform: scale(1.03);
+  box-shadow: 6px 6px 8px #a8a8a8, -6px -6px 8px #ffffff;
+}
