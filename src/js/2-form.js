@@ -14,12 +14,13 @@ formEl.addEventListener('input', () => {
 
 formEl.addEventListener('submit', event => {
   event.preventDefault();
-  const email = formEl.elements.email.value;
-  const message = formEl.elements.message.value;
-  formData.message = formEl.elements.message.value;
+  const email = formEl.elements.email.value.trim();
+  const message = formEl.elements.message.value.trim();
+
   if (email === '' || message === '') {
     return alert('Fill please all fields');
   }
+
   console.log(formData);
   localStorage.removeItem(keyLocal);
   formEl.reset();
