@@ -7,13 +7,15 @@ const formData = {
 };
 
 formEl.addEventListener('input', () => {
-  localStorage.setItem(keyLocal, JSON.stringify(formData));
   formData.email = formEl.elements.email.value.trim();
   formData.message = formEl.elements.message.value.trim();
+
+  localStorage.setItem(keyLocal, JSON.stringify(formData));
 });
 
 formEl.addEventListener('submit', event => {
   event.preventDefault();
+
   const email = formEl.elements.email.value.trim();
   const message = formEl.elements.message.value.trim();
 
@@ -27,7 +29,8 @@ formEl.addEventListener('submit', event => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-const loadForms = JSON.parse(localStorage.getItem(keyLocal));
-formEl.elements.email.value = loadForms?.email ?? '';
-formEl.elements.message.value = loadForms?.message ?? '';
+  const loadForms = JSON.parse(localStorage.getItem(keyLocal));
+  
+  formEl.elements.email.value = loadForms?.email ?? '';
+  formEl.elements.message.value = loadForms?.message ?? '';
 });
