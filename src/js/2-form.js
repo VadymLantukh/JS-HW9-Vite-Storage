@@ -1,5 +1,5 @@
 const formEl = document.querySelector('.feedback-form');
-const keyLocal = 'feedback-form-state';
+const LOCAL_KEY = 'feedback-form-state';
 
 const formData = {
   email: '',
@@ -10,7 +10,7 @@ formEl.addEventListener('input', () => {
   formData.email = formEl.elements.email.value.trim();
   formData.message = formEl.elements.message.value.trim();
 
-  localStorage.setItem(keyLocal, JSON.stringify(formData));
+  localStorage.setItem(LOCAL_KEY, JSON.stringify(formData));
 });
 
 formEl.addEventListener('submit', event => {
@@ -24,12 +24,12 @@ formEl.addEventListener('submit', event => {
   }
 
   console.log(formData);
-  localStorage.removeItem(keyLocal);
+  localStorage.removeItem(LOCAL_KEY);
   formEl.reset();
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  const loadForms = JSON.parse(localStorage.getItem(keyLocal));
+  const loadForms = JSON.parse(localStorage.getItem(LOCAL_KEY));
   
   formEl.elements.email.value = loadForms?.email ?? '';
   formEl.elements.message.value = loadForms?.message ?? '';
